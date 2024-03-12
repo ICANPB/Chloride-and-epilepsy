@@ -1,0 +1,20 @@
+v'=-gk*(n(v)^4)*(v-ek(v,cko,cnai,ccli))-(gkl+0.2*glu)*(v-ek(v,cko,cnai,ccli))-gna*(m(v)^3)*h(v)*(v-ena(cnai))-(gnal+0.4*glu)*(v-ena(cnai))-gcll*(v-ecl(ccli))-ipump(cko,cnai)/gamma+(ipc/(2*b*gamma))*(cko-kbath)
+cko'=(((gk*(n(v)^4)*(v-ek(v,cko,cnai,ccli))+(gkl+0.2*glu)*(v-ek(v,cko,cnai,ccli)))*gamma-2*ipump(cko,cnai)+ikcc(v,cko,ccli,cnai)+inkcc(v,cko,cnai,ccli))*b-ipc*(cko-kbath))/tao
+cnai'=((-gna*(m(v)^3)*h(v)*(v-ena(cnai))-(gnal+0.4*glu)*(v-ena(cnai)))*gamma-3*ipump(cko,cnai)-inkcc(v,cko,cnai,ccli))/tao
+ccli'=(gcll*(v-ecl(ccli))*gamma-2*inkcc(v,cko,cnai,ccli)-ikcc(V,cko,ccli,cnai))/tao
+ikcc(v,cko,ccli,cnai)=ukcc2*ln((cki(v,cko,cnai,ccli)*ccli)/(cko*(cclt-b*ccli)))*heav(ln((cki(v,cko,cnai,ccli)*ccli)/(cko*(cclt-b*ccli))))
+inkcc(v,cko,cnai,ccli)=(unkcc1/(1))*(ln((cki(v,cko,cnai,ccli)*ccli)/(cko*(cclt-b*ccli)))+ln((cnai*ccli)/((cnat-b*cnai)*(cclt-b*ccli))))*heav(-(unkcc1/(1))*(ln((cki(v,cko,cnai,ccli)*ccli)/(cko*(cclt-b*ccli)))+ln((cnai*ccli)/((cnat-b*cnai)*(cclt-b*ccli)))))
+ena(cnai)=26.64*ln((cnat-b*cnai)/cnai)
+ek(v,cko,cnai,ccli)=26.64*ln(cko/cki(v,cko,cnai,ccli))
+cki(v,cko,cnai,ccli)=2*(v*gamma/1000-da-(cclt-cnat)/(2*b)-cnai+cko/(2*b)+ccli)
+ecl(ccli)=26.64*ln(ccli/(cclt-b*ccli))
+ipump(cko,cnai)=(0.8/(1+exp((25-cnai)/3)))*(1/(1+exp(3.5-cko)))
+#ikcc(cko,ccli)=0.3*ln(((ckt-cko)*ccli)/(cko*(cclt-ccli)))
+#inkcc(cko,cnai,ccli)=(0.1/(1+exp(16-cko)))*(ln(((ckt-cko)*ccli)/(cko*(cclt-ccli)))+ln((cnai*ccli)/((cnat-cnai)*(cclt-ccli))))
+m(v)=(0.32*(v+54)/(1-exp(-(v+54)/4)))/(0.32*(v+54)/(1-exp(-(v+54)/4))+0.28*(v+27)/(exp((v+27)/5)-1))
+h(v)=(0.128*exp(-(v+50)/18))/(0.128*exp(-(v+50)/18)+4/(1+exp(-(v+27)/5)))
+n(v)=(0.032*(v+52)/(1-exp(-(v+52)/5)))/(0.032*(v+52)/(1-exp(-(v+52)/5))+0.5*exp(-(v+57)/40))
+par gna=30,gk=20,gnal=0.0247,gkl=0.05,gcll=0.1,cclt=187,cnat=275,glu=0
+par tao=1000,gamma=0.03,kbath=3,ipc=0.25,b=7,unkcc1=0.005,ukcc2=0.5;
+par da=-50
+init cko=3,cnai=20.59,ccli=6.1126,v=-71.707

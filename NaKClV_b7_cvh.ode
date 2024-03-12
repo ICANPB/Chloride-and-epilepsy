@@ -1,0 +1,24 @@
+v'=-gk*(n(v)^4)*(v-ek(cko))-(gkl+0.2*glu)*(v-ek(cko))-gna*(m(v)^3)*h(v)*(v-ena(v,cko,ccli))-(gnal+0.4*glu)*(v-ena(v,cko,ccli))-gcll*(v-ecl(ccli))-ipump(v,cko,ccli)/gamma
+cko'=(((gk*(n(v)^4)*(v-ek(cko))+(gkl+0.2*glu)*(v-ek(cko)))*gamma-2*ipump(v,cko,ccli)+ikcc(cko,ccli)+inkcc(v,cko,ccli))*b)/tao
+#cnai'=((-gna*(m(v)^3)*h(v)*(v-ena(cnai))-(gnal+0.4*glu)*(v-ena(cnai)))*gamma-3*ipump(v,cko,cli)-inkcc(v,cko,cli))/tao
+ccli'=(gcll*(v-ecl(ccli))*gamma-2*inkcc(v,cko,ccli)-ikcc(cko,ccli))/tao
+#hh'=-gh*((cko+ccli-cnai+v*(gamma/tao))-11.0974)-(hh+11.0974)
+#h_f=X_b7_cv_f2(:,2,iii1)/7+X_b7_cv_f2(:,4,iii1)-X_b7_cv_f2(:,3,iii1)+X_b7_cv_f2(:,1,iii1)*(gamma/1000);
+#m'=(0.32*(v+54)/(1-exp(-(v+54)/4)))*(1-m)-(0.28*(v+27)/(exp((v+27)/5)-1))*m
+#h'=(0.128*exp(-(v+50)/18))*(1-h)-(4/(1+exp(-(v+27)/5)))*h
+#n'=((0.032*(v+52))/(1-exp(-(v+52)/5)))*(1-n)-(0.5*exp(-(v+57)/40))*n
+ikcc(cko,ccli)=ukcc2*ln(((ckt-cko/b)*ccli)/(cko*(cclt-b*ccli)))*heav(ln(((ckt-cko/b)*ccli)/(cko*(cclt-b*ccli))))
+inkcc(v,cko,ccli)=(unkcc1/(1+exp(16-cko)))*(ln(((ckt-cko/b)*ccli)/(cko*(cclt-b*ccli)))+ln((cnai(v,cko,ccli)*ccli)/((cnat-b*cnai(v,cko,ccli))*(cclt-b*ccli))))*heav(-(unkcc1/(1+exp(16-cko)))*(ln(((ckt-cko/b)*ccli)/(cko*(cclt-b*ccli)))+ln((cnai(v,cko,ccli)*ccli)/((cnat-b*cnai(v,cko,ccli))*(cclt-b*ccli)))))
+cnai(v,cko,ccli)=cko/b+ccli+v*(gamma/tao)-hh
+ena(v,cko,ccli)=26.64*ln((cnat-b*cnai(v,cko,ccli))/cnai(v,cko,ccli))
+ek(cko)=26.64*ln(cko/(ckt-cko/b))
+ecl(ccli)=26.64*ln(ccli/(cclt-b*ccli))
+ipump(v,cko,ccli)=(0.8/(1+exp((25-cnai(v,cko,ccli))/3)))*(1/(1+exp(3.5-cko)))
+#ikcc(cko,ccli)=0.3*ln(((ckt-cko)*ccli)/(cko*(cclt-ccli)))
+#inkcc(cko,cnai,ccli)=(0.1/(1+exp(16-cko)))*(ln(((ckt-cko)*ccli)/(cko*(cclt-ccli)))+ln((cnai*ccli)/((cnat-cnai)*(cclt-ccli))))
+m(v)=(0.32*(v+54)/(1-exp(-(v+54)/4)))/(0.32*(v+54)/(1-exp(-(v+54)/4))+0.28*(v+27)/(exp((v+27)/5)-1))
+h(v)=(0.128*exp(-(v+50)/18))/(0.128*exp(-(v+50)/18)+4/(1+exp(-(v+27)/5)))
+n(v)=(0.032*(v+52)/(1-exp(-(v+52)/5)))/(0.032*(v+52)/(1-exp(-(v+52)/5))+0.5*exp(-(v+57)/40))
+par gna=30,gk=20,gnal=0.04,gkl=0.1,gcll=0.1,cclt=187,cnat=275,glu=0,gf=0,vf=-70.7352
+par tao=1000,gamma=0.03,b=7,unkcc1=0.1,ukcc2=0.3,ckt=84.4695,hh=-13.6637
+init cko=2.9941,ccli=5.9686,v=-70.7352
