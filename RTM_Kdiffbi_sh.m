@@ -5,8 +5,7 @@ V=X(1);m=X(2);h=X(3);n=X(4);c_K_o=X(5);c_Na_i=X(6);c_Cl_i=X(7);c_K_i=X(8);HCO_o=
 g_K=Y(1);G_KL=Y(2);g_Na=Y(3);G_NaL=Y(4);G_ClL=Y(5);c_Na_t=Y(6);c_Cl_t=Y(7);gamma=Y(8);belta=Y(9);tao=Y(10);dA=Y(11);Glu=Y(12);
 %U_KCC2=Y(13);U_NKCC1=Y(14);
 Kbath=K(1);ipc=K(2);
-c_K_i=2*((gamma/1000)*V-((-c_Na_t+c_Cl_t)/(2*belta)+c_Na_i-c_K_o/(2*belta)-c_Cl_i)-dA);
-c_K_i=(gamma/1000)*V+c_Cl_i-c_Na_i+dA;
+c_K_i=c_Cl_i-c_Na_i+dA;
 G_gaba=G(1);rou=G(2);HCO_ob=G(3);HCO_ib=G(4);ipc_Ho=G(5);ipc_Hi=G(6);
 c_Na_o=c_Na_t-belta*c_Na_i;c_Cl_o=c_Cl_t-belta*c_Cl_i;
 I_pump=(0.8/(1+exp((25-c_Na_i)/3)))*(1/(1+exp(3.5-c_K_o)));
