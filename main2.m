@@ -1,6 +1,6 @@
-G_NaL=0.04;G_KL=0.1;G_ClL=0.15;gamma=0.03;
+G_NaL=0.04;G_KL=0.1;G_ClL=0.1;gamma=0.03;
 belta=1;g_Na=30;g_K=20;tao=1000;
-G_gaba=0;rou=0.2;HCO_o=26;HCO_i=12;
+G_gaba=0;rou=0.2;HCO_o=24;HCO_i=14.7;
 
 c_K_t=100;c_Na_t=155;c_Cl_t=151;
 l_t=50000000;dt=0.1;stepc=1;t_tsee=stepc:stepc:l_t;l_tc=length(t_tsee);
